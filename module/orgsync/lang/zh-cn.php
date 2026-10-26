@@ -1,0 +1,37 @@
+<?php
+$lang->orgsync->common           = '组织架构及人员同步';
+$lang->orgsync->ding             = '钉钉通讯录同步';
+$lang->orgsync->appKey           = 'AppKey';
+$lang->orgsync->appSecret        = 'AppSecret';
+$lang->orgsync->agentId          = 'AgentId';
+$lang->orgsync->agentIdTip       = '可选，仅用于消息通知';
+$lang->orgsync->parentDept       = '同步到部门';
+$lang->orgsync->initPassword     = '新用户初始密码';
+$lang->orgsync->initPasswordTip  = '同步时新建用户使用该密码，至少 6 位，用户登录后可自行修改。';
+$lang->orgsync->tipLabel         = '说明';
+$lang->orgsync->tip              = '请先在钉钉开放平台创建企业内部应用并开通通讯录读取权限。同步只新增或更新部门和人员，不会删除禅道中已有的数据；钉钉根部门不会创建，其下部门会放到“同步到部门”所选部门下。';
+$lang->orgsync->syncNow          = '立即同步';
+$lang->orgsync->lastResult       = '上次同步结果';
+$lang->orgsync->neverSync        = '尚未同步过。';
+$lang->orgsync->secretSaved      = '已保存，留空则不修改';
+$lang->orgsync->syncResult       = '新增部门 %s 个，更新部门 %s 个；新增人员 %s 人，更新人员 %s 人，跳过 %s 人。';
+$lang->orgsync->lastSyncTime     = '同步时间：%s';
+$lang->orgsync->errors           = '部分数据同步失败：';
+$lang->orgsync->syncing          = '正在同步，请稍候…';
+$lang->orgsync->requestFailed    = '请求失败，请检查网络后重试。';
+$lang->orgsync->unnamed          = '未命名';
+
+$lang->orgsync->error = new stdclass();
+$lang->orgsync->error->noCredential = '请先填写钉钉应用的 AppKey 和 AppSecret。';
+$lang->orgsync->error->authFailed   = '无法获取钉钉访问令牌，请检查 AppKey 和 AppSecret 是否正确。';
+$lang->orgsync->error->fetchFailed  = '拉取钉钉通讯录失败（%s），请稍后重试。';
+$lang->orgsync->error->noDept       = '钉钉通讯录中没有可同步的部门。';
+$lang->orgsync->error->scopeLimited = '当前钉钉应用只能访问部分部门，请在钉钉后台为应用开通全部通讯录权限后重试。';
+$lang->orgsync->error->postOnly     = '同步请求必须使用 POST。';
+$lang->orgsync->error->adminOnly    = '只有管理员可以执行通讯录同步。';
+$lang->orgsync->error->deptFailed   = '部门“%s”同步失败。';
+$lang->orgsync->error->userFailed   = '人员“%s”同步失败。';
+$lang->orgsync->error->userFetchFailed = '%s 位人员的详细信息获取失败，本次已跳过。';
+$lang->orgsync->error->userFetchFailedOne = '人员 %s 获取失败（%s）。';
+$lang->orgsync->error->v2Fallback    = '新版成员接口调用失败，已切换为兼容模式继续同步。';
+$lang->orgsync->error->password     = '新用户初始密码至少需要 6 位。';

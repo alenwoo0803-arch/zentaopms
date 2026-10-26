@@ -854,6 +854,7 @@ $lang->navGroup->admin         = 'admin';
 $lang->navGroup->dept          = 'admin';
 $lang->navGroup->user          = 'admin';
 $lang->navGroup->group         = 'admin';
+$lang->navGroup->orgsync       = 'admin';
 $lang->navGroup->dept          = 'admin';
 $lang->navGroup->webhook       = 'admin';
 $lang->navGroup->sms           = 'admin';

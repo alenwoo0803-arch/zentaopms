@@ -337,4 +337,6 @@ $lang->admin->metricLib->updating    = '正在更新';
 $lang->admin->metricLib->updated     = '更新完成';
 $lang->admin->metricLib->tips        = "由于度量库表数据量较大，更新索引可能需要较长时间，请在业务低峰期操作。在此期间您可以进行其他操作，但请勿关闭当前页面或浏览器。";
 
+$lang->admin->orgSync = '组织架构及人员同步';
+
 include dirname(__FILE__) . '/menu.php';

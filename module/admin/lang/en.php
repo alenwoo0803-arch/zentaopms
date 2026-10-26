@@ -337,4 +337,6 @@ $lang->admin->metricLib->updating    = 'Updating';
 $lang->admin->metricLib->updated     = 'Update Completed';
 $lang->admin->metricLib->tips        = "Due to the large volume of data in the metrics tables, updating the index may take a significant amount of time. Please perform this operation during off-peak hours. You may continue with other tasks, but please do not close this page or your browser.";
 
+$lang->admin->orgSync = 'Organization and User Sync';
+
 include dirname(__FILE__) . '/menu.php';
