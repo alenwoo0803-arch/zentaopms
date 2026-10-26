@@ -324,4 +324,6 @@ $lang->admin->community->uxPlan->cancel = 'Canceled';
 $lang->admin->community->unBind = new stdclass();
 $lang->admin->community->unBind->success = 'Disconnect';
 
+$lang->admin->orgSync = 'Organisation und Benutzer synchronisieren';
+
 include dirname(__FILE__) . '/menu.php';

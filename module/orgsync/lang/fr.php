@@ -1,0 +1,37 @@
+<?php
+$lang->orgsync->common           = 'Synchronisation des organisations et utilisateurs';
+$lang->orgsync->ding             = 'Synchroniser les contacts DingTalk';
+$lang->orgsync->appKey           = 'AppKey';
+$lang->orgsync->appSecret        = 'AppSecret';
+$lang->orgsync->agentId          = 'AgentId';
+$lang->orgsync->agentIdTip       = 'Optional, only used for message notifications';
+$lang->orgsync->parentDept       = 'Sync to department';
+$lang->orgsync->initPassword     = 'Initial password';
+$lang->orgsync->initPasswordTip  = 'New users created during sync use this password. At least 6 characters; users can change it after login.';
+$lang->orgsync->tipLabel         = 'Notice';
+$lang->orgsync->tip              = 'Create an internal app in the DingTalk Open Platform and grant contact read permission first. Sync only creates or updates departments and users; existing ZenTao data is never deleted. The DingTalk root department is not created; its child departments are placed under the department selected above.';
+$lang->orgsync->syncNow          = 'Sync now';
+$lang->orgsync->lastResult       = 'Last sync result';
+$lang->orgsync->neverSync        = 'Not synced yet.';
+$lang->orgsync->secretSaved      = 'Saved, leave blank to keep it';
+$lang->orgsync->syncResult       = '%s departments created, %s updated; %s users created, %s updated, %s skipped.';
+$lang->orgsync->lastSyncTime     = 'Sync time: %s';
+$lang->orgsync->errors           = 'Some records failed to sync:';
+$lang->orgsync->syncing          = 'Syncing, please wait...';
+$lang->orgsync->requestFailed    = 'Request failed. Please check your network and try again.';
+$lang->orgsync->unnamed          = 'Unnamed';
+
+$lang->orgsync->error = new stdclass();
+$lang->orgsync->error->noCredential = 'Please fill in the AppKey and AppSecret of your DingTalk app first.';
+$lang->orgsync->error->authFailed   = 'Unable to get a DingTalk access token. Please check the AppKey and AppSecret.';
+$lang->orgsync->error->fetchFailed  = 'Failed to fetch DingTalk contacts (%s). Please try again later.';
+$lang->orgsync->error->noDept       = 'No department can be synced from DingTalk.';
+$lang->orgsync->error->scopeLimited = 'The DingTalk app can only access part of the departments. Please grant full contact permission and try again.';
+$lang->orgsync->error->postOnly     = 'The sync request must use POST.';
+$lang->orgsync->error->adminOnly    = 'Only administrators can run the contact sync.';
+$lang->orgsync->error->deptFailed   = 'Failed to sync department "%s".';
+$lang->orgsync->error->userFailed   = 'Failed to sync user "%s".';
+$lang->orgsync->error->userFetchFailed = 'Failed to fetch details of %s users, they were skipped in this sync.';
+$lang->orgsync->error->userFetchFailedOne = 'Failed to fetch user %s (%s).';
+$lang->orgsync->error->v2Fallback    = 'The v2 member API failed, switched to compatibility mode to continue syncing.';
+$lang->orgsync->error->password     = 'The initial password must be at least 6 characters.';

@@ -1,0 +1,37 @@
+<?php
+$lang->orgsync->common           = '組織架構及人員同步';
+$lang->orgsync->ding             = '釘釘通訊錄同步';
+$lang->orgsync->appKey           = 'AppKey';
+$lang->orgsync->appSecret        = 'AppSecret';
+$lang->orgsync->agentId          = 'AgentId';
+$lang->orgsync->agentIdTip       = '可選，僅用於消息通知';
+$lang->orgsync->parentDept       = '同步到部門';
+$lang->orgsync->initPassword     = '新用戶初始密碼';
+$lang->orgsync->initPasswordTip  = '同步時新建用戶使用該密碼，至少 6 位，用戶登錄後可自行修改。';
+$lang->orgsync->tipLabel         = '說明';
+$lang->orgsync->tip              = '請先在釘釘開放平台創建企業內部應用並開通通訊錄讀取權限。同步只新增或更新部門和人員，不會刪除禪道中已有的數據；釘釘根部門不會創建，其下部門會放到“同步到部門”所選部門下。';
+$lang->orgsync->syncNow          = '立即同步';
+$lang->orgsync->lastResult       = '上次同步結果';
+$lang->orgsync->neverSync        = '尚未同步過。';
+$lang->orgsync->secretSaved      = '已保存，留空則不修改';
+$lang->orgsync->syncResult       = '新增部門 %s 個，更新部門 %s 個；新增人員 %s 人，更新人員 %s 人，跳過 %s 人。';
+$lang->orgsync->lastSyncTime     = '同步時間：%s';
+$lang->orgsync->errors           = '部分數據同步失敗：';
+$lang->orgsync->syncing          = '正在同步，請稍候…';
+$lang->orgsync->requestFailed    = '請求失敗，請檢查網絡後重試。';
+$lang->orgsync->unnamed          = '未命名';
+
+$lang->orgsync->error = new stdclass();
+$lang->orgsync->error->noCredential = '請先填寫釘釘應用的 AppKey 和 AppSecret。';
+$lang->orgsync->error->authFailed   = '無法獲取釘釘訪問令牌，請檢查 AppKey 和 AppSecret 是否正確。';
+$lang->orgsync->error->fetchFailed  = '拉取釘釘通訊錄失敗（%s），請稍後重試。';
+$lang->orgsync->error->noDept       = '釘釘通訊錄中沒有可同步的部門。';
+$lang->orgsync->error->scopeLimited = '當前釘釘應用只能訪問部分部門，請在釘釘後台為應用開通全部通訊錄權限後重試。';
+$lang->orgsync->error->postOnly     = '同步請求必須使用 POST。';
+$lang->orgsync->error->adminOnly    = '只有管理員可以執行通訊錄同步。';
+$lang->orgsync->error->deptFailed   = '部門“%s”同步失敗。';
+$lang->orgsync->error->userFailed   = '人員“%s”同步失敗。';
+$lang->orgsync->error->userFetchFailed = '%s 位人員的詳細信息獲取失敗，本次已跳過。';
+$lang->orgsync->error->userFetchFailedOne = '人員 %s 獲取失敗（%s）。';
+$lang->orgsync->error->v2Fallback    = '新版成員接口調用失敗，已切換為兼容模式繼續同步。';
+$lang->orgsync->error->password     = '新用戶初始密碼至少需要 6 位。';

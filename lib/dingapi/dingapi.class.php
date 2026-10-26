@@ -252,6 +252,8 @@ class dingapi
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, $url);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
+            curl_setopt($ch, CURLOPT_TIMEOUT, 30);
             if(!isset($_SERVER['HTTPS']) or $_SERVER['HTTPS'] != 'on')
             {
                 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -289,6 +291,59 @@ class dingapi
         }
         curl_multi_close($curl);
         return $urlData;
+    }
+
+    /**
+     * 获取部门的用户列表（新版接口）。
+     * Get users of one department by v2 API.
+     *
+     * @param  int    $deptID
+     * @param  int    $cursor
+     * @param  int    $size
+     * @access public
+     * @return array
+     */
+    public function getDeptUsers(int $deptID, int $cursor = 0, int $size = 100): array
+    {
+        $url  = $this->apiUrl . 'topapi/v2/user/list?access_token=' . rawurlencode((string)$this->token);
+        $body = array('dept_id' => $deptID, 'cursor' => $cursor, 'size' => $size);
+
+        $response = $this->requestJSON($url, $body);
+        if(!$response) return array('result' => 'fail', 'message' => $this->errors);
+
+        return array
+        (
+            'result'     => 'success',
+            'data'       => isset($response->result->list) ? $response->result->list : array(),
+            'hasMore'    => !empty($response->result->has_more),
+            'nextCursor' => isset($response->result->next_cursor) ? (int)$response->result->next_cursor : 0
+        );
+    }
+
+    /**
+     * 以 JSON 方式请求接口，限流时自动重试。
+     * Request API with JSON body and retry on rate limit.
+     *
+     * @param  string $url
+     * @param  array  $body
+     * @access private
+     * @return object|false
+     */
+    private function requestJSON(string $url, array $body): object|false
+    {
+        for($attempt = 1; $attempt <= 3; $attempt++)
+        {
+            $response = json_decode((string)common::http($url, $body, array(), array(), 'json', 'POST', 30));
+            if(!is_object($response) || !isset($response->errcode)) return false;
+            if($response->errcode == 0) return $response;
+
+            $this->errors[$response->errcode] = "Errcode:{$response->errcode}, Errmsg:{$response->errmsg}";
+            if(!in_array((int)$response->errcode, array(88, 90018, -1), true)) return false;
+
+            sleep($attempt);
+        }
+
+        return false;
     }
 
     /**
